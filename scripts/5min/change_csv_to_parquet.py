@@ -24,8 +24,8 @@ def main(folder: str):
         print(f"loading {file}")
         data_df = pd.read_csv(file)
 
-        # data_df["timestamp"] = pd.to_datetime(data_df["timestamp"])
-        # data_df = data_df[["value", "timestamp", "ss_id"]]
+        data_df["timestamp"] = pd.to_datetime(data_df["timestamp"])
+        data_df = data_df[["generation_wh", "timestamp", "ss_id"]]
 
         file = file.replace(".csv.gz", ".parquet")
         print(f"Saving {file}")

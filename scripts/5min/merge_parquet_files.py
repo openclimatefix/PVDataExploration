@@ -34,16 +34,12 @@ def main(folder: str, filename: str):
 
     print("merging file")
     data_all_df = pd.concat(data_all_df)
-    data_all_df["datetime"] = pd.to_datetime(data_all_df["datetime"])
+    data_all_df["timestamp"] = pd.to_datetime(data_all_df["timestamp"])
     data_all_df.reset_index(inplace=True)
-
-    print("sorting file")
-    data_all_df.sort_values(by='datetime', inplace=True)
-
     print(data_all_df.head())
 
     print(f"Saving")
-    data_all_df.to_parquet(filename, index=False, engine="pyarrow")
+    data_all_df.to_parquet(filename, engine="pyarrow", index=False)
 
 
 if __name__ == "__main__":
