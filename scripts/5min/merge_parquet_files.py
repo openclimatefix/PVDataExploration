@@ -35,6 +35,7 @@ def main(folder: str, filename: str):
     print("merging file")
     data_all_df = pd.concat(data_all_df)
     data_all_df["timestamp"] = pd.to_datetime(data_all_df["timestamp"])
+    data_all_df = data_all_df[['generation_wh', 'timestamp', 'ss_id']]
     data_all_df.reset_index(inplace=True)
     print(data_all_df.head())
 
