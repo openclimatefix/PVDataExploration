@@ -13,12 +13,12 @@ default_folder = "../../Data/30min/Yearly_data"
     help="The folder to look in, to change the parquet files.",
 )
 @click.option(
-    "--file",
+    "--filename",
     default="all.parquet",
     type=click.STRING,
     help="The output filename (should end in .parquet)",
 )
-def main(folder: str, file: str):
+def main(folder: str, filename: str):
 
     # get all file names
     files = glob.glob(folder + "/*.parquet")
@@ -39,7 +39,7 @@ def main(folder: str, file: str):
     print(data_all_df.head())
 
     print(f"Saving")
-    data_all_df.to_parquet(file, engine="pyarrow", index=False)
+    data_all_df.to_parquet(filename, engine="pyarrow", index=False)
 
 
 if __name__ == "__main__":
