@@ -38,7 +38,7 @@ def main(folder: str, filename: str):
     data_all_df.reset_index(inplace=True)
 
     print("sorting file")
-    data_all_df.sort_values(by='datetime', inplace=True)
+    data_all_df.sort_values(by="datetime", inplace=True)
 
     print(data_all_df.head())
 

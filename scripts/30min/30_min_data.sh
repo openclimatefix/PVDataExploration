@@ -37,4 +37,4 @@ python3 -u merge_all_parquet.py --folder=../../Data/30min/2019/ --filename=../..
 python3 -u merge_all_parquet.py --folder=../../Data/30min/2020/ --filename=../../Data/30min/Yearly_data/2020_30min_newformat.parquet
 python3 -u merge_all_parquet.py --folder=../../Data/30min/2021/ --filename=../../Data/30min/Yearly_data/2021_30min_newformat.parquet
 
-python3 -u merge_all_parquet.py --folder=../../Data/30min/Yearly_data/ --filename=../../Data/30min/Yearly_data/all.parquet
+python3 -u merge_all_parquet.py --folder=../../Data/30min/Yearly_data/ --filename=../../Data/30min/Yearly_data/30min.parquet

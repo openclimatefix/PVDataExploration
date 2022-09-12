@@ -52,5 +52,6 @@ def main(folder: str):
         print("Save file")
         data_joined.to_parquet(file)
 
+
 if __name__ == "__main__":
     main()
