@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 # Load parquet file as a pandas dataframe
 
 import pandas as pd
