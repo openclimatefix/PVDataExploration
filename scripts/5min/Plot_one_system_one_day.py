@@ -1,13 +1,13 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
-
 # Select and plot one day of PV data from one PV system 
+
+# Load parquet file as a pandas dataframe
 
 import pandas as pd
 import matplotlib.pyplot as plt
+
+# Specify the location of your parquet file
+file_dir = '/Volumes/Sara_external_drive/PhD/PIPs/OpenClimateFix/Data Huggingface/5min.parquet'
+data = pd.read_parquet(file_dir, engine = 'pyarrow')
 
 # Select data from one PV system
 PV_system = 2631
