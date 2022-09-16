@@ -1,13 +1,11 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
-
 # Select and plot one year of PV data from ten PV systems
 
 import pandas as pd
 import matplotlib.pyplot as plt
+
+# Specify the location of your parquet file and load it as a pandas dataframe
+file_dir = '/Volumes/Sara_external_drive/PhD/PIPs/OpenClimateFix/Data Huggingface/5min.parquet'
+data = pd.read_parquet(file_dir, engine = 'pyarrow')
 
 # Extract data of 10 PV systems
 PV_data = pd.DataFrame(columns = ["generation_wh","timestamp","ss_id"])
