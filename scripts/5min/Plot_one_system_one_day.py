@@ -18,8 +18,8 @@ PV_data_1day = PV_data.loc[PV_data['timestamp'] > day]
 PV_data_1day = PV_data_1day.loc[PV_data_1day['timestamp'] < following_day]
 
 # Plot power generation of this PV system across this day
-PV_data_1year.set_index('timestamp', inplace=True)
-PV_data_1year['generation_wh'].plot()
+PV_data_1day.set_index('timestamp', inplace=True)
+PV_data_1day['generation_wh'].plot()
 plt.title("Power generation of PV system {PV} on day {date}".format(PV=PV_system, date=day))
 plt.xlabel("time")
 plt.ylabel("power generation (wh)")
