@@ -10,9 +10,7 @@ data = pd.read_parquet(file_dir, engine = 'pyarrow')
 # Extract data of 10 PV systems
 PV_data = pd.DataFrame(columns = ["generation_wh","timestamp","ss_id"])
 PV_systems = [13308, 13057, 7548, 7542, 10589, 6891, 9369, 11438, 18989, 7243]
-for i in range(10): 
-    PV = PV_systems[i]    
-    PV_data = PV_data.append(data.loc[data['ss_id'] == PV])
+PV_data = data[data['ss_id'].isin(PV_systems)]
     
 # Select data from one year
 start_day = '2020-01-01'
@@ -21,7 +19,8 @@ PV_data_1year = PV_data.loc[PV_data['timestamp'] > start_day]
 PV_data_1year = PV_data_1year.loc[PV_data_1year['timestamp'] < end_day]
 
 # Plot data of these 10 PV systems for one year (2020)
-plt.plot(PV_data_1year['timestamp'], PV_data_1year['generation_wh']) 
+PV_data_1year.set_index('timestamp', inplace=True)
+PV_data_1year['generation_wh'].plot()
 plt.title("Power generation of 10 PV systems during 2020")
 plt.xlabel("month")
 plt.ylabel("power generation (wh)")
