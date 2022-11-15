@@ -1,5 +1,3 @@
-import sys
-sys.path.append(".")
 # Libraries
 import os
 import random
@@ -8,7 +6,7 @@ from typing import Dict, List, Tuple, Union
 from pathlib import Path
 import pandas as pd
 import xarray as xr
-from eda.utils.file_management import find_files
+from utils.file_management import find_files
 
 
 
