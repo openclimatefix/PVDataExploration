@@ -32,7 +32,7 @@ def load_data(
 
     metadata_df = pd.read_csv(uk_pv_meta_path)
     pv_power_xr = xr.open_dataset(uk_pv_netcdf_path, engine="h5netcdf")
-    print("\nLoading of both meta and netcdf files are finished successfully\n")
+    print("\nLoading of both meta and netcdf files is finished successfully\n")
     return metadata_df, pv_power_xr
 
 def dates_list(
@@ -46,15 +46,3 @@ def dates_list(
     dates_lst = [i.strftime('%Y-%m-%d') for i in dates_lst]
     dates_lst = list(set(dates_lst))
     return dates_lst
-
-# if __name__ == "__main__":
-#     downloads_path = r"c:\\Users\\vardh\\OneDrive - University of Leicester\\OCF\\Git_repos\\downloads\\huggingface_uk_pv"
-#     metafilename = "uk_pv_metadata.csv"
-#     netcdffilename = "uk_pv_netcdf.netcdf"
-#     dops = dataops(
-#         downloads_path = downloads_path,
-#         metafilename = metafilename,
-#         netcdffilename = netcdffilename        
-#     )
-#     dops.load_data()
-#     dops.dates_list()
