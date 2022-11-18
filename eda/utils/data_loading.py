@@ -46,3 +46,22 @@ def dates_list(
     dates_lst = [i.strftime('%Y-%m-%d') for i in dates_lst]
     dates_lst = list(set(dates_lst))
     return dates_lst
+
+def no_pv_df_to_dict(
+    no_pv_df_path: Path[Union, str]
+    )-> Dict:
+    """
+    Function that takes a csv file with ssid and dates of
+    pv systems with no data and converts that into a dictionary
+    """
+    df = pd.read_csv(no_pv_df_path, sep = "\t")
+    no_pv_dict = {}
+    for i in df['ssid'].unique().tolist():
+        df_slice = df[df['ssid'] == i]
+        no_pv_dict[i] = df_slice['date'].tolist()
+    return no_pv_dict
+
+# no_pv_df_path = r"C:\Users\vardh\OneDrive - University of Leicester\OCF\Git_repos\PVDataExploration\PVDataExploration\no_pv_output.csv"
+# dict1 = no_pv_df_to_dict(
+#     no_pv_df_path = no_pv_df_path)
+# print(dict1[6630])
