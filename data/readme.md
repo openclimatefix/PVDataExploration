@@ -1,6 +1,10 @@
 # Data
 The data should be in this folder it should be in the following folders
 
+# No PV Data Folder
+This folder contanis following files
+- A csv file which contains ssid's with corresponding dates (single day) which has no pv output whatsoever 
+
 ## Freq
 
 - 2min

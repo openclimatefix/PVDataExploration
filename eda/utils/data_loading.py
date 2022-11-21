@@ -7,6 +7,8 @@ from pathlib import Path
 import pandas as pd
 import xarray as xr
 from utils.file_management import find_files
+from tqdm import tqdm
+from time import sleep
 
 
 
@@ -30,9 +32,12 @@ def load_data(
         search_path = downloads_path
     )
 
-    metadata_df = pd.read_csv(uk_pv_meta_path)
-    pv_power_xr = xr.open_dataset(uk_pv_netcdf_path, engine="h5netcdf")
-    print("\nLoading of both meta and netcdf files is finished successfully\n")
+    with tqdm(total=100) as pbar:
+        metadata_df = pd.read_csv(uk_pv_meta_path)
+        sleep(0.1)
+        pv_power_xr = xr.open_dataset(uk_pv_netcdf_path, engine="h5netcdf")
+        print("\nLoading of both meta and netcdf files is finished successfully\n")
+        pbar.update(10)
     return metadata_df, pv_power_xr
 
 def dates_list(
@@ -60,8 +65,3 @@ def no_pv_df_to_dict(
         df_slice = df[df['ssid'] == i]
         no_pv_dict[i] = df_slice['date'].tolist()
     return no_pv_dict
-
-# no_pv_df_path = r"C:\Users\vardh\OneDrive - University of Leicester\OCF\Git_repos\PVDataExploration\PVDataExploration\no_pv_output.csv"
-# dict1 = no_pv_df_to_dict(
-#     no_pv_df_path = no_pv_df_path)
-# print(dict1[6630])

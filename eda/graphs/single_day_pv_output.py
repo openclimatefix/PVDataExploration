@@ -17,7 +17,7 @@ class singleday_pv_output:
         downloads_path:Path[Union,str],
         metafilename:str,
         netcdffilename:str,
-        random_choice:bool = False       
+        random_choice:bool = None       
         )->None:
         self.downloads_path = downloads_path
         self.metafilename = metafilename
@@ -43,7 +43,7 @@ class singleday_pv_output:
         date_oi:str
         )-> pd.DataFrame():
         """
-        converts xarray dataset into a pandas dataframe, and its values for a single random day
+        converts xarray dataset into a pandas dataframe, and its values for a single day
 
         """                            
         date_1 = datetime.strptime(date_oi, '%Y-%m-%d')
@@ -64,18 +64,20 @@ class singleday_pv_output:
         """
         status = True
         ssid_list = list(self.pv_power_xr)
-        dates_list = list(self.dates_lst)        
-        no_pv_dict = no_pv_df_to_dict(
-            no_pv_df_path = no_pv_df_path)
+        dates_list = list(self.dates_lst) 
+        ssid = random.choice(ssid_list)
+        date_oi = random.choice(list(self.dates_lst))               
+        # no_pv_dict = no_pv_df_to_dict(
+        #     no_pv_df_path = no_pv_df_path)
     
-        if not self.random_choice:
+        # if not self.random_choice:
             # ssid = random.choice(list(self.pv_power_xr))
-            ssid = random.choice(ssid_list)
-            # self.date_oi = random.choice(list(self.dates_lst))
-            while status:
-                date_oi = random.choice(dates_list)
-                if date_oi not in no_pv_dict[np.float(ssid)]:
-                    break
+            # ssid = random.choice(ssid_list)
+            # date_oi = random.choice(list(self.dates_lst))
+            # while status:
+            #     date_oi = random.choice(dates_list)
+            #     if date_oi not in no_pv_dict[np.float(ssid)]:
+            #         break
         print("Randomly selected ssid is", ssid)
         print("Randomly selected date for that ssid is", date_oi)
         
