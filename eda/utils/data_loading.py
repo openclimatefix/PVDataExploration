@@ -31,13 +31,9 @@ def load_data(
         filename = netcdffilename,
         search_path = downloads_path
     )
-
-    with tqdm(total=100) as pbar:
-        metadata_df = pd.read_csv(uk_pv_meta_path)
-        sleep(0.1)
-        pv_power_xr = xr.open_dataset(uk_pv_netcdf_path, engine="h5netcdf")
-        print("\nLoading of both meta and netcdf files is finished successfully\n")
-        pbar.update(10)
+    metadata_df = pd.read_csv(uk_pv_meta_path)
+    pv_power_xr = xr.open_dataset(uk_pv_netcdf_path, engine="h5netcdf")
+    print("\nLoading of both meta and netcdf files is finished successfully\n")
     return metadata_df, pv_power_xr
 
 def dates_list(
@@ -52,16 +48,16 @@ def dates_list(
     dates_lst = list(set(dates_lst))
     return dates_lst
 
-def no_pv_df_to_dict(
-    no_pv_df_path: Path[Union, str]
+def pv_df_to_dict(
+    pv_df_path: Path[Union, str]
     )-> Dict:
     """
     Function that takes a csv file with ssid and dates of
     pv systems with no data and converts that into a dictionary
     """
-    df = pd.read_csv(no_pv_df_path, sep = "\t")
-    no_pv_dict = {}
+    df = pd.read_csv(pv_df_path, sep = "\t")
+    pv_dict = {}
     for i in df['ssid'].unique().tolist():
         df_slice = df[df['ssid'] == i]
-        no_pv_dict[i] = df_slice['date'].tolist()
-    return no_pv_dict
+        pv_dict[i] = df_slice['date'].tolist()
+    return pv_dict

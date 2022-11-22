@@ -54,30 +54,24 @@ class singleday_pv_output:
             &
             (on_pv_system.index > date_1)]
         return on_pv_system
+
+    @staticmethod
+    def randomchoice(
+        pv_power_xr: xr.Dataset,
+        dates_list: List):
+        ssid = random.choice(list(pv_power_xr))
+        date_oi = random.choice(list(dates_list))
+        return ssid, date_oi
     
 
     def pv_singleday_output_display(
-        self,
-        no_pv_df_path: Path[Union, str])->None:
+        self)->None:
         """
         Plot the PV output of the day that is randomly selected with SSID and a date
         """
-        status = True
-        ssid_list = list(self.pv_power_xr)
-        dates_list = list(self.dates_lst) 
-        ssid = random.choice(ssid_list)
-        date_oi = random.choice(list(self.dates_lst))               
-        # no_pv_dict = no_pv_df_to_dict(
-        #     no_pv_df_path = no_pv_df_path)
-    
-        # if not self.random_choice:
-            # ssid = random.choice(list(self.pv_power_xr))
-            # ssid = random.choice(ssid_list)
-            # date_oi = random.choice(list(self.dates_lst))
-            # while status:
-            #     date_oi = random.choice(dates_list)
-            #     if date_oi not in no_pv_dict[np.float(ssid)]:
-            #         break
+        ssid, date_oi =singleday_pv_output.randomchoice(
+            pv_power_xr = self.pv_power_xr, 
+            dates_list = self.dates_lst)
         print("Randomly selected ssid is", ssid)
         print("Randomly selected date for that ssid is", date_oi)
         
