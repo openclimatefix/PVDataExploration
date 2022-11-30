@@ -1,0 +1,54 @@
+name: pv_data_eda
+channels:
+  - defaults
+dependencies:
+  - python=3.10
+  - stack_data
+  - pyparsing
+  - zlib
+  - parso
+  - openssl
+  - ipython
+  - tzdata
+  - wcwidth
+  - pywin32
+  - packaging
+  - pickleshare
+  - certifi
+  - backcall
+  - zeromq
+  - sqlite
+  - tornado
+  - matplotlib-inline
+  - tk
+  - pip
+  - jedi
+  - jupyter_core
+  - pure_eval
+  - wheel
+  - six
+  - decorator
+  - vs2015_runtime
+  - traitlets
+  - wincertstore
+  - libffi
+  - bzip2
+  - libsodium
+  - colorama
+  - vc
+  - ca-certificates
+  - nest-asyncio
+  - setuptools
+  - debugpy
+  - entrypoints
+  - pygments
+  - prompt-toolkit
+  - psutil
+  - executing
+  - pyzmq
+  - jupyter_client
+  - xz
+  - python-dateutil
+  - asttokens
+  - ipykernel
+prefix: C:\Users\vardh\anaconda3\envs\pv_data_eda
