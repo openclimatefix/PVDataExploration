@@ -1,4 +1,4 @@
-from utils.data_loading import load_data, dates_list, no_pv_df_to_dict
+from utils.data_loading import load_data, dates_list, pv_df_to_dict
 from pathlib import Path
 import xarray as xr
 import random
@@ -7,7 +7,7 @@ import numpy as np
 from typing import Union, List, Dict
 from datetime import datetime, date, timedelta
 import matplotlib.pyplot as plt
-from alive_progress import alive_bar
+# from alive_progress import alive_bar
 import time
 
 
