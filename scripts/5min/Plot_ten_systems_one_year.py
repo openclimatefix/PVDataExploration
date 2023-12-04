@@ -11,7 +11,7 @@ data = pd.read_parquet(file_dir, engine = 'pyarrow')
 PV_data = pd.DataFrame(columns = ["generation_wh","timestamp","ss_id"])
 PV_systems = [13308, 13057, 7548, 7542, 10589, 6891, 9369, 11438, 18989, 7243]
 PV_data = data[data['ss_id'].isin(PV_systems)]
-    
+
 # Select data from one year
 start_day = '2020-01-01'
 end_day = '2021-01-01'
@@ -27,6 +27,5 @@ plt.ylabel("power generation (wh)")
 hours_dataformat = pd.date_range(start="2020-01-01",end="2020-12-31", freq="MS")
 hours_dataformat = hours_dataformat.strftime("%Y-%m-%d %H:%M:%S+00:00").tolist()
 hours_plot = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-plt.xticks(hours_dataformat, hours_plot, rotation=30) 
+plt.xticks(hours_dataformat, hours_plot, rotation=30)
 plt.show()
-
