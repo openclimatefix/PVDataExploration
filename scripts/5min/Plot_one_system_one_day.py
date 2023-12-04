@@ -1,4 +1,4 @@
-# Select and plot one day of PV data from one PV system 
+# Select and plot one day of PV data from one PV system
 
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -26,6 +26,5 @@ plt.ylabel("power generation (wh)")
 hours_dataformat = pd.date_range(start="2021-04-01",end="2021-04-02", freq="3H")
 hours_dataformat = hours_dataformat.strftime("%Y-%m-%d %H:%M:%S+00:00").tolist()
 hours_plot = ['12 am', '3 am', '6 am', '9 am', '12 pm', '3 pm', '6 pm', '9 pm', '12 am']
-plt.xticks(hours_dataformat, hours_plot, rotation=30) 
+plt.xticks(hours_dataformat, hours_plot, rotation=30)
 plt.show()
-
