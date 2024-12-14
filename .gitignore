@@ -3,8 +3,12 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+#Files
+no_pv_output.csv
+
 # C extensions
 *.so
+*.csv
 
 # Distribution / packaging
 .Python
